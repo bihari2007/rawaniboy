@@ -1,326 +1,278 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-      <link rel="icon" type="image/png" href="AA.png">
-  <title>Photo to PDF by AA Brothers</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Online Photo to PDF Converter | Convert Images to PDF</title>
+
+  <!--  SEO Meta Tags -->
+  <meta name="description" content="Free online Photo to PDF converter. Convert multiple images or photos into a single PDF file instantly. Works on mobile and PC without any software.">
+  <meta name="keywords" content="photo to pdf, convert image to pdf, online pdf maker, jpg to pdf, png to pdf, free pdf converter, images to pdf online, rawani boy, rawani boy pdf maker">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.rawaniboy.site/pdf-maker.html">
+
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
-    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      font-family: 'Poppins', sans-serif;
-      background: #0e0e1a;
-      color: #fff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(-45deg, #ff6a00, #ee0979, #4facfe, #00f2fe);
+      background-size: 400% 400%;
+      animation: gradientBG 10s ease infinite;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       min-height: 100vh;
+      margin: 0;
+      padding: 15px;
+      box-sizing: border-box;
+    }
+
+    @keyframes gradientBG {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      padding: 40px 30px;
+      border-radius: 20px;
+      width: 100%;
+      max-width: 650px;
+      text-align: center;
+      box-shadow: 0 0 30px rgba(0,0,0,0.3);
+      animation: fadeIn 1s ease;
+      position: relative;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      font-size: 26px;
+    }
+
+    input[type="file"] { display: none; }
+
+    .custom-file-upload {
+      background: #ff7f50;
+      color: white;
+      padding: 14px 28px;
+      border-radius: 50px;
+      cursor: pointer;
+      display: inline-block;
+      font-size: 16px;
+      transition: 0.3s;
+      margin-bottom: 15px;
+      width: auto;
+    }
+    .custom-file-upload:hover {
+      background: #ff5722;
+      transform: scale(1.05);
+    }
+
+    .download-btn {
+      background: linear-gradient(90deg, #00c6ff, #0072ff);
+      color: white;
+      padding: 14px 40px;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: 0.3s;
+      font-size: 18px;
+      font-weight: bold;
       position: relative;
       overflow: hidden;
+      margin-top: 10px;
     }
-    canvas#stars {
+    .download-btn::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.3);
+      transform: skewX(-20deg);
+      transition: 0.5s;
+    }
+    .download-btn:hover::before { left: 100%; }
+    .download-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(0, 114, 255, 0.6);
+    }
+
+    .file-name {
+      margin: 12px 0;
+      font-size: 15px;
+      color: #fff3cd;
+      font-weight: bold;
+      word-wrap: break-word;
+    }
+
+    .overlay {
       position: fixed;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      z-index: -1;
-    }
-    h2 {
-      text-align: center;
-      font-size: 28px;
-      margin: 20px 0;
-      font-weight: 600;
-    }
-    .upload-container {
-      background: rgba(255, 255, 255, 0.05);
-      padding: 20px;
-      border-radius: 15px;
-      backdrop-filter: blur(10px);
-      max-width: 600px;
-      margin: 0 auto 20px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-      text-align: center;
-    }
-    input[type="file"] { display: none; }
-    .custom-file-upload {
-      display: inline-block;
-      padding: 12px 25px;
-      font-size: 16px;
-      background: #007bff;
-      color: #fff;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background 0.3s, transform 0.3s;
-    }
-    .custom-file-upload:hover {
-      background: #0056b3;
-      transform: translateY(-2px);
-    }
-    .preview-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-      gap: 10px;
-      margin: 20px auto;
-      max-width: 90%;
-    }
-    .preview-container img {
-      width: 100%;
-      height: 150px;
-      object-fit: cover;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-      transition: transform 0.3s;
-    }
-    .preview-container img:hover {
-      transform: scale(1.05);
-    }
-    .btn-download {
-      display: block;
-      margin: 20px auto;
-      padding: 12px 25px;
-      font-size: 18px;
-      background: #28a745;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background 0.3s, transform 0.3s;
-    }
-    .btn-download:hover {
-      background: #218838;
-      transform: translateY(-2px);
-    }
-    .btn-download:disabled {
-      background: #6c757d;
-      cursor: not-allowed;
-    }
-    .loading-spinner {
-      display: none;
-      text-align: center;
-      font-size: 18px;
-      margin-top: 10px;
-    }
-    .progress-bar {
-      width: 90%;
-      height: 10px;
-      background: #333;
-      border-radius: 5px;
-      margin: 0 auto 20px;
-      overflow: hidden;
-    }
-    .progress-bar-fill {
-      height: 100%;
-      background: #00ff88;
-      width: 0;
-      transition: width 0.3s;
-    }
-    .image-wrapper {
-      position: relative;
-    }
-    .remove-image {
-      position: absolute;
-      top: 5px;
-      right: 5px;
-      background: rgba(255, 0, 0, 0.8);
-      color: white;
-      border: none;
-      border-radius: 50%;
-      width: 25px;
-      height: 25px;
-      cursor: pointer;
+      background: rgba(0, 0, 0, 0.6);
       display: flex;
-      align-items: center;
+      flex-direction: column;
       justify-content: center;
-      font-size: 14px;
-      transition: background 0.3s;
+      align-items: center;
+      display: none;
+      z-index: 999;
     }
-    .remove-image:hover {
-      background: rgba(255, 0, 0, 1);
+
+    .spinner {
+      border: 6px solid rgba(255,255,255,0.3);
+      border-top: 6px solid #fff;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .overlay p {
+      margin-top: 15px;
+      font-size: 18px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .popup {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(40, 167, 69, 0.9);
+      color: white;
+      padding: 15px 30px;
+      border-radius: 30px;
+      box-shadow: 0 0 20px rgba(0,255,0,0.5);
+      display: none;
+      animation: slideUp 0.5s ease;
+      font-weight: bold;
+      backdrop-filter: blur(10px);
+      text-align: center;
+      z-index: 1000;
+    }
+
+    @keyframes slideUp {
+      from {opacity: 0; transform: translate(-50%, 50px);}
+      to {opacity: 1; transform: translate(-50%, 0);}
+    }
+
+    @media (max-width: 480px) {
+      h1 { font-size: 22px; }
+      .custom-file-upload, .download-btn {
+        width: 100%;
+        font-size: 16px;
+        padding: 12px 0;
+      }
+      .popup {
+        width: 90%;
+        font-size: 14px;
+        padding: 12px 15px;
+      }
     }
   </style>
 </head>
 <body>
-  <canvas id="stars"></canvas>
+  <div class="container">
+    <h1>Photo to PDF Converter</h1>
 
-  <h2>Photos to PDF by AR Brothers</h2>
+    <label for="photoInput" class="custom-file-upload">Choose Photos</label>
+    <input type="file" id="photoInput" multiple accept="image/*" aria-label="Select images to convert into PDF">
+    <div id="fileNames" class="file-name"></div>
 
-  <div class="upload-container">
-    <label for="imageInput" class="custom-file-upload">Choose Images</label>
-    <input type="file" id="imageInput" accept="image/*" multiple>
+    <button class="download-btn" onclick="photosToPDF()">Download PDF</button>
+
+    <div class="overlay" id="overlay">
+      <div class="spinner"></div>
+      <p>Creating your PDF...</p>
+    </div>
   </div>
 
-  <div class="preview-container" id="previewContainer"></div>
+  <div class="popup" id="popup">✅ PDF downloaded! Check your notification bar.</div>
 
-  <div class="progress-bar">
-    <div class="progress-bar-fill" id="progressBar"></div>
-  </div>
-
-  <button class="btn-download" id="downloadBtn" onclick="generatePDF()">Download PDF</button>
-
-  <div class="loading-spinner" id="loadingSpinner">Generating PDF...</div>
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <script>
-    const { jsPDF } = window.jspdf;
-    let imageList = [];
+    const photoInput = document.getElementById('photoInput');
+    const fileNames = document.getElementById('fileNames');
+    const overlay = document.getElementById('overlay');
+    const popup = document.getElementById('popup');
 
-    document.getElementById('imageInput').addEventListener('change', function(event) {
-      const files = event.target.files;
-      if (files.length > 0) {
-        Array.from(files).forEach(file => {
-          if (!file.type.startsWith('image/')) {
-            alert("Please upload only image files.");
-            return;
-          }
-
-          const reader = new FileReader();
-          reader.onload = function(e) {
-            imageList.push(e.target.result);
-
-            const imageWrapper = document.createElement('div');
-            imageWrapper.className = 'image-wrapper';
-
-            const img = document.createElement('img');
-            img.src = e.target.result;
-
-            const removeBtn = document.createElement('button');
-            removeBtn.className = 'remove-image';
-            removeBtn.innerHTML = '×';
-            removeBtn.onclick = function() {
-              imageWrapper.remove();
-              imageList = imageList.filter(item => item !== e.target.result);
-            };
-
-            imageWrapper.appendChild(img);
-            imageWrapper.appendChild(removeBtn);
-            document.getElementById('previewContainer').appendChild(imageWrapper);
-          };
-          reader.readAsDataURL(file);
-        });
-      }
+    photoInput.addEventListener('change', () => {
+      let count = photoInput.files.length;
+      fileNames.innerText = count > 0 ? `${count} image${count > 1 ? 's' : ''} selected` : '';
     });
 
-    async function generatePDF() {
-      if (imageList.length === 0) {
-        alert("Please select images first.");
-        return;
-      }
+    async function photosToPDF() {
+      const { jsPDF } = window.jspdf;
+      const files = photoInput.files;
+      if (!files.length) return alert('Please select at least one photo.');
 
-      const downloadBtn = document.getElementById('downloadBtn');
-      const loadingSpinner = document.getElementById('loadingSpinner');
-      const progressBar = document.getElementById('progressBar');
+      overlay.style.display = 'flex';
 
-      downloadBtn.disabled = true;
-      loadingSpinner.style.display = 'block';
-      progressBar.style.width = '0';
+      let pdf;
+      for (let i = 0; i < files.length; i++) {
+        const img = await loadImage(files[i]);
+        const pxToMm = 0.264583;
+        const pageWidth = img.width * pxToMm;
+        const pageHeight = img.height * pxToMm;
 
-      let doc = new jsPDF("p", "mm", "a4");
-      let pageWidth = 210;
-      let pageHeight = 297;
-      let margin = 10;
-      let currentHeight = margin;
-
-      for (let i = 0; i < imageList.length; i++) {
-        const img = imageList[i];
-        const imgElement = new Image();
-        imgElement.src = img;
-
-        await new Promise((resolve) => {
-          imgElement.onload = function() {
-            const imgWidth = imgElement.width;
-            const imgHeight = imgElement.height;
-            const aspectRatio = imgWidth / imgHeight;
-
-            let fitWidth = pageWidth - 2 * margin;
-            let fitHeight = fitWidth / aspectRatio;
-
-            if (currentHeight + fitHeight > pageHeight - margin) {
-              doc.addPage();
-              currentHeight = margin;
-            }
-
-            doc.addImage(img, 'JPEG', margin, currentHeight, fitWidth, fitHeight);
-            currentHeight += fitHeight + margin;
-
-            progressBar.style.width = `${((i + 1) / imageList.length) * 100}%`;
-            resolve();
-          };
-        });
-      }
-
-      doc.save("AR_BROTHERS.pdf");
-      downloadBtn.disabled = false;
-      loadingSpinner.style.display = 'none';
-    }
-
-    // STAR CANVAS ANIMATION
-    const canvas = document.getElementById("stars");
-    const ctx = canvas.getContext("2d");
-    let stars = [];
-
-    function resizeCanvas() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
-
-    window.addEventListener("resize", resizeCanvas);
-    resizeCanvas();
-
-    function createStars(count) {
-      stars = [];
-      for (let i = 0; i < count; i++) {
-        stars.push({
-          x: Math.random() * canvas.width,
-          y: Math.random() * canvas.height,
-          radius: Math.random() * 1.5,
-          dx: (Math.random() - 0.5) * 0.5,
-          dy: (Math.random() - 0.5) * 0.5
-        });
-      }
-    }
-
-    function drawStars() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      for (let star of stars) {
-        ctx.beginPath();
-        ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
-        ctx.fillStyle = "#ffffff";
-        ctx.fill();
-      }
-    }
-
-    function drawLines() {
-      for (let i = 0; i < stars.length; i++) {
-        for (let j = i + 1; j < stars.length; j++) {
-          const dx = stars[i].x - stars[j].x;
-          const dy = stars[i].y - stars[j].y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-          if (distance < 100) {
-            ctx.beginPath();
-            ctx.moveTo(stars[i].x, stars[i].y);
-            ctx.lineTo(stars[j].x, stars[j].y);
-            ctx.strokeStyle = "rgba(255,255,255,0.1)";
-            ctx.stroke();
-          }
+        if (i === 0) {
+          pdf = new jsPDF({
+            orientation: pageWidth > pageHeight ? 'l' : 'p',
+            unit: 'mm',
+            format: [pageWidth, pageHeight]
+          });
+        } else {
+          pdf.addPage([pageWidth, pageHeight], pageWidth > pageHeight ? 'l' : 'p');
         }
+
+        pdf.addImage(img, 'JPEG', 0, 0, pageWidth, pageHeight);
       }
+
+      const pdfBlob = pdf.output('blob');
+      const url = URL.createObjectURL(pdfBlob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'photos_to_pdf.pdf';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+
+      overlay.style.display = 'none';
+      showPopup();
     }
 
-    function updateStars() {
-      for (let star of stars) {
-        star.x += star.dx;
-        star.y += star.dy;
-        if (star.x < 0 || star.x > canvas.width) star.dx *= -1;
-        if (star.y < 0 || star.y > canvas.height) star.dy *= -1;
-      }
+    function loadImage(file) {
+      return new Promise((resolve) => {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          const img = new Image();
+          img.src = e.target.result;
+          img.onload = () => resolve(img);
+        };
+        reader.readAsDataURL(file);
+      });
     }
 
-    function animateStars() {
-      drawStars();
-      drawLines();
-      updateStars();
-      requestAnimationFrame(animateStars);
+    function showPopup() {
+      popup.style.display = 'block';
+      setTimeout(() => { popup.style.display = 'none'; }, 5000);
     }
-
-    createStars(120);
-    animateStars();
   </script>
 </body>
 </html>
