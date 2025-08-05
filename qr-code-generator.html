@@ -1,146 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>AA QR Code Generator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>QR Code Generator | Rawaniboy</title>
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Create free QR codes instantly with our online QR code generator. Customize QR colors and download high-quality QR codes for your website, business, or social media.">
+  <meta name="keywords" content="QR code generator, online QR creator, free QR code maker, download QR codes, QR code for website, rawaniboy QR, QR scanner code, customizable QR code, create QR online">
+  <meta name="author" content="Rawaniboy">
+
+  <!-- Open Graph for Social Sharing -->
+  <meta property="og:title" content="Free QR Code Generator | Rawaniboy">
+  <meta property="og:description" content="Generate and download QR codes instantly for free. Customize QR colors and use them for websites, business cards, and social media.">
+  <meta property="og:image" content="images/logo.png">
+  <meta property="og:url" content="https://www.rawaniboy.site">
+
+  <link rel="icon" type="image/png" href="images/logo.png">
 
   <!-- External CSS -->
-  <link rel="stylesheet" href="qr.css" />
+  <link rel="stylesheet" href="qr.css">
 
-  <!-- jQuery & QR Code Plugin -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+  <!-- QR Code Library -->
+  <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
 </head>
+
 <body>
-  <canvas id="stars"></canvas>
-
-  <div class="container">
-    <h1>QR Code Generator</h1>
-    <input type="text" id="data" placeholder="Enter text or URL" />
-
-    <div class="color-options">
-      <input type="radio" id="colorBlack" name="qrColor" value="black" checked>
-      <label id="black" for="colorBlack"></label>
-
-      <input type="radio" id="colorRed" name="qrColor" value="red">
-      <label id="red" for="colorRed"></label>
-
-      <input type="radio" id="colorBlue" name="qrColor" value="blue">
-      <label id="blue" for="colorBlue"></label>
-
-      <input type="radio" id="colorGreen" name="qrColor" value="green">
-      <label id="green" for="colorGreen"></label>
-
-      <input type="radio" id="colorPurple" name="qrColor" value="purple">
-      <label id="purple" for="colorPurple"></label>
+  <div class="card">
+    <h2>QR Generator</h2>
+    <canvas id="qrcode"></canvas>
+    
+    <div class="input-box">
+      <input type="text" id="text" value="www.rawaniboy.site">
     </div>
-
-    <button id="generate">Generate QR Code</button>
-
-    <div id="qrcode-container">
-      <div id="qrcode"></div>
+    
+    <div class="color-box">
+      <input type="color" id="color" value="#000000" title="Choose QR Color">
     </div>
-
-    <a id="download" href="#" download="AA_QR_Code.png">Download QR Code</a>
+    
+    <button onclick="generateQR()">Generate</button>
+    <button onclick="downloadQR()">Download</button>
   </div>
 
-  <script>
-    // QR Code Generation
-    $(document).ready(function () {
-      $('#generate').click(function () {
-        var data = $('#data').val();
-        var selectedColor = $('input[name="qrColor"]:checked').val();
-        $('#qrcode').empty();
-
-        if (data) {
-          $('#qrcode').qrcode({
-            text: data,
-            width: 200,
-            height: 200,
-            foreground: selectedColor
-          });
-
-          $('#download').show();
-
-          setTimeout(() => {
-            var qrCanvas = $('#qrcode canvas')[0];
-            var borderWidth = 20;
-            var totalWidth = qrCanvas.width + borderWidth * 2;
-            var totalHeight = qrCanvas.height + borderWidth * 2;
-
-            var canvas = document.createElement('canvas');
-            canvas.width = totalWidth;
-            canvas.height = totalHeight;
-            var ctx = canvas.getContext('2d');
-
-            ctx.fillStyle = 'white';
-            ctx.fillRect(0, 0, totalWidth, totalHeight);
-            ctx.drawImage(qrCanvas, borderWidth, borderWidth);
-
-            var imgData = canvas.toDataURL("image/png");
-            $('#download').attr('href', imgData);
-          }, 100);
-        } else {
-          alert("Please enter some data to generate a QR code.");
-        }
-      });
-    });
-
-    // Starry Background with Lines
-    const canvas = document.getElementById('stars');
-    const ctx = canvas.getContext('2d');
-    let width = canvas.width = window.innerWidth;
-    let height = canvas.height = window.innerHeight;
-
-    const stars = Array.from({ length: 100 }, () => ({
-      x: Math.random() * width,
-      y: Math.random() * height,
-      vx: (Math.random() - 0.5) * 0.5,
-      vy: (Math.random() - 0.5) * 0.5
-    }));
-
-    function drawStars() {
-      ctx.clearRect(0, 0, width, height);
-      ctx.fillStyle = 'white';
-      ctx.strokeStyle = 'rgba(255, 255, 255, 0.2)';
-
-      for (let i = 0; i < stars.length; i++) {
-        const s = stars[i];
-        ctx.beginPath();
-        ctx.arc(s.x, s.y, 2, 0, Math.PI * 2);
-        ctx.fill();
-
-        for (let j = i + 1; j < stars.length; j++) {
-          const s2 = stars[j];
-          const dist = Math.hypot(s.x - s2.x, s.y - s2.y);
-          if (dist < 120) {
-            ctx.beginPath();
-            ctx.moveTo(s.x, s.y);
-            ctx.lineTo(s2.x, s2.y);
-            ctx.stroke();
-          }
-        }
-
-        s.x += s.vx;
-        s.y += s.vy;
-
-        if (s.x < 0 || s.x > width) s.vx *= -1;
-        if (s.y < 0 || s.y > height) s.vy *= -1;
-      }
-
-      requestAnimationFrame(drawStars);
-    }
-
-    window.addEventListener('resize', () => {
-      width = canvas.width = window.innerWidth;
-      height = canvas.height = window.innerHeight;
-    });
-
-    drawStars();
-  </script>
+  <!-- External JS -->
+  <script src="qr.js"></script>
 </body>
+
 </html>
