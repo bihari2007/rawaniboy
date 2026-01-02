@@ -1,0 +1,161 @@
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #f5f7ff;
+  font-family: Poppins, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background 0.3s, color 0.3s;
+}
+
+body[data-theme="dark"] {
+  background: #111827;
+  color: #f5f7ff;
+}
+
+.container {
+  width: 100%;
+  max-width: 360px;
+  background: #fff;
+  padding: 24px;
+  border-radius: 24px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, .1);
+  text-align: center;
+  transition: background 0.3s, color 0.3s;
+}
+
+body[data-theme="dark"] .container {
+  background: #1f2937;
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+.subtitle {
+  font-size: .75rem;
+  color: #6b7280;
+  margin-bottom: 16px;
+}
+
+body[data-theme="dark"] .subtitle {
+  color: #d1d5db;
+}
+
+/* ✅ Choose Image button */
+.custom-file-upload {
+  display: inline-block;
+  padding: 16px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: #fff;
+  border-radius: 30px;
+  cursor: pointer;
+  margin-top: 12px;
+  box-shadow: 0 6px 16px rgba(99, 102, 241, 0.3);
+  transition: all 0.3s ease;
+}
+
+.custom-file-upload:hover {
+  background: linear-gradient(135deg, #8b5cf6, #6366f1);
+}
+
+.custom-file-upload input {
+  display: none;
+}
+
+/* Buttons & selects */
+button,
+select {
+  width: 100%;
+  height: 50px;
+  border-radius: 25px;
+  border: none;
+  margin-top: 12px;
+  font-size: .9rem;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+
+select {
+  background: #e5e7eb;
+  color: #111;
+}
+
+body[data-theme="dark"] select {
+  background: #374151;
+  color: #f5f7ff;
+}
+
+button:disabled {
+  opacity: .5;
+}
+
+#cropContainer {
+  display: none;
+  margin-top: 16px;
+}
+
+#cropContainer img {
+  max-width: 100%;
+  max-height: 60vh;
+  display: block;
+}
+
+#croppedPreview {
+  display: none;
+  max-width: 100%;
+  margin-top: 16px;
+  border-radius: 16px;
+}
+
+.trust {
+  font-size: 11px;
+  color: #9ca3af;
+  margin-top: 16px;
+}
+
+body[data-theme="dark"] .trust {
+  color: #d1d5db;
+}
+
+/* ✅ NEW Security Info Styles */
+.security-info {
+  margin-top: 16px;
+  font-size: 12px;
+  color: #6b7280;
+  line-height: 1.4;
+  text-align: left;
+}
+
+body[data-theme="dark"] .security-info {
+  color: #d1d5db;
+}
+
+.security-info p {
+  margin: 4px 0;
+}
+
+/* ✅ Light/Dark toggle button */
+#themeToggle {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: #fff;
+  font-size: 18px;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
