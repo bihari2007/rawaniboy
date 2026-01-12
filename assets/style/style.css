@@ -162,20 +162,23 @@ body[data-theme="dark"] .security-info {
 
 
 .scontainer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
   width: 468px;
   height: 60px;
-  max-width: 100%;
   background: #fff;
   padding: 0;
-  border-radius: 8px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 12px 12px 0 0;
+  box-shadow: 0 -8px 20px rgba(0, 0, 0, 0.15);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 20px auto;
+  z-index: 9999;
   transition: background 0.3s, color 0.3s;
 }
 
+/* Mobile support */
 @media (max-width: 500px) {
   .scontainer {
     width: 320px;
