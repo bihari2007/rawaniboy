@@ -2,113 +2,92 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Online Photo Resize Tool – Voter, PAN, Aadhaar, Signature Image Resizer</title>
-    
-    <meta name="description" content="Free online photo resize tool for Voter ID, PAN Card, Aadhaar Card, signature and all documents. Easily resize images, reduce photo size, compress image online without losing quality.">
-    
-    <meta name="keywords" content="photo resize, image resize, photo size reducer, image size reducer, voter photo resize, voter image resize, pan card photo resize, pan image resize, pan photo resize, aadhaar photo resize, aadhar image resize, signature photo resize, sign image resize, online photo resizer, online image resizer, compress image online, reduce photo size online, resize image for form, passport photo resize">
-    
-    <meta name="robots" content="index, follow">
-    
-    <meta name="author" content="Rawani Boy Image Resizer">
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <meta property="og:title" content="Free Online Photo & Image Resize Tool">
-    
-    <meta property="og:description" content="Resize voter photo, PAN card photo, Aadhaar photo, signature image and all document images online for free. Easy and fast image resizer tool.">
-    
-    <meta property="og:type" content="website">
-    
-    <meta property="og:url" content="https://www.rawaniboy.site/">
-    
-    <meta property="og:image" content="https://www.rawaniboy.site/assets/images/logo/banner.png">
-    
-    <meta name="twitter:card" content="summary_large_image">
-    
-    <meta name="twitter:title" content="Online Photo Resize and Size Reducer Tool">
-    
-    <meta name="twitter:description" content="Resize and compress images for voter ID, PAN card, Aadhaar card and signature online instantly.">
-    
-    <meta name="twitter:image" content="https://www.rawaniboy.site/assets/images/logo/banner.png">
-    
-    <link rel="canonical" href="https://www.rawaniboy.site/">
-    
-    <meta name="theme-color" content="#000">
-    
-    <meta name="rating" content="general">
-    
-    <meta name="distribution" content="global">
-    
-    <meta http-equiv="content-language" content="en">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css">
-    <link rel="stylesheet" href="assets/style/style.css">
-    <link rel="icon" href="assets/images/logo/logo.png" type="image/png">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4972282828170446" crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <title>Image Resizer For Pan Card| Voter Card and other documents – ImageToolsOnline</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" href="https://amanish07.github.io/ImageToolsOnline/assets/images/ImageToolsOnlinelogo.png" type="image/png">
+  <link rel="apple-touch-icon" href="https://amanish07.github.io/ImageToolsOnline/assets/images/ImageToolsOnlinelogo.png">
+  <link rel="shortcut icon" href="https://amanish07.github.io/ImageToolsOnline/assets/images/ImageToolsOnlinelogo.png" type="image/png">
+  
+  <!-- BASIC SEO -->
+  <meta name="description" content="Free online image and PDF tools – Image size reducer, JPG to PDF, PDF to JPG, and image converters.">
+  <meta name="keywords" content="image size reducer, jpg to pdf, pdf to jpg, image tools online, pdf tools">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- OPEN GRAPH -->
+  <meta property="og:title" content="ImageToolsOnline – Free Image & PDF Tools">
+  <meta property="og:description" content="Resize, Compress & Convert Images and PDFs online – 100% Free">
+  <meta property="og:image" content="https://amanish07.github.io/ImageToolsOnline/assets/images/ImageToolsOnlinebanner.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://amanish07.github.io/ImageToolsOnline/">
+  
+  <!-- TWITTER -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ImageToolsOnline – Free Image & PDF Tools">
+  <meta name="twitter:description" content="Resize, Compress & Convert Images and PDFs online – 100% Free">
+  <meta name="twitter:image" content="https://amanish07.github.io/ImageToolsOnline/assets/images/ImageToolsOnlinebanner.png">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="https://amanish07.github.io/ImageToolsOnline/assets/styles/image-resizer.css">
+  <!-- jsPDF -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 
-<body data-theme="light">
+<body>
+  <div class="container">
+    <h1>Image Size Reducer</h1>
+    <p class="sub">Resize by pixels & compress image</p>
     
-    <!-- ✅ Light/Dark toggle -->
-    <button id="themeToggle">🌙</button>
-    
-    <div class="container">
-        <h1>Image Size Reducer</h1>
-        <p class="subtitle">Fast • Secure • No Upload</p>
-        
-        <label class="custom-file-upload">
-            <input type="file" id="imageInput" accept="image/*">
-            📷 Choose Image
-        </label>
-        
-        <div id="cropContainer">
-            <img id="cropImage">
-            
-            <select id="ratioSelect">
-                <option value="free">Free Crop</option>
-                <option value="1">Passport (1:1)</option>
-                <option value="3/4">Aadhaar,Pan & Voter card(3:4)</option>
-            </select>
-            
-            <button id="cropBtn">✂️ Crop</button>
-        </div>
-        
-        <img id="croppedPreview">
-        
-        <!-- ✅ Size Options with Original -->
-        <select id="sizeSelect">
-            <option disabled selected>Select Size</option>
-            <option value="original">Original Size</option>
-            <option value="25">25 KB</option>
-            <option value="50">50 KB</option>
-            <option value="100">100 KB</option>
-            <option value="300">300 KB</option>
-        </select>
-        
-        <!-- ✅ Format Options -->
-        <select id="formatSelect">
-            <option disabled selected>Select Format</option>
-            <option value="image">Image</option>
-            <option value="pdf">PDF</option>
-        </select>
-        
-        <!-- ✅ Download Button -->
-        <button id="downloadBtn" disabled>⬇️ Download</button>
-        
-        <p class="trust">🔒 Images are processed locally. Nothing is uploaded.</p>
-        
-        <div class="security-info">
-            <p><strong>101% Secure:</strong> No data upload ever. Everything processed locally in your browser.</p>
-            <p>Resize photos for <strong>PAN Card, Voter Card, Aadhaar Card</strong> + <strong>Signature images</strong> instantly!</p>
-        </div>
+    <div class="upload-box">
+      <label class="btn">
+        Upload Image
+        <input type="file" id="upload" accept="image/*">
+      </label>
+      <p id="fileInfo"></p>
     </div>
     
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="/assets/script/script.js"></script>
+    <div class="options">
+      <div class="options-row">
+        <input type="checkbox" id="pixelToggle">
+        <label>Resize by Pixels</label>
+      </div>
+      <div class="options-row">
+        <label>Width:</label>
+        <input type="number" id="pxW" disabled>
+        <label>Height:</label>
+        <input type="number" id="pxH" disabled>
+      </div>
+      <div class="options-row">
+        <label>Download as:</label>
+        <select id="format">
+          <option value="image">Image</option>
+          <option value="pdf">PDF</option>
+        </select>
+      </div>
+    </div>
+    
+    <div class="sizes">
+      <div class="size-btn" data-size="original">Original Size</div>
+      <div class="size-btn" data-size="20">20 KB</div>
+      <div class="size-btn" data-size="30">30 KB</div>
+      <div class="size-btn" data-size="50">50 KB</div>
+      <div class="size-btn" data-size="100">100 KB</div>
+      <div class="size-btn" data-size="300">300 KB</div>
+    </div>
+    
+    <button class="btn" id="processBtn">Start Processing</button>
+    <div id="processing">⏳ Processing…</div>
+    
+    <div class="preview" id="previewBox">
+      <p><b>Live Preview</b></p>
+      <img id="previewImg">
+      <p>Final Size: <span id="finalSize"></span> KB</p>
+      <a id="download" class="btn">Download</a>
+    </div>
+    
+  
+  <script src="https://amanish07.github.io/ImageToolsOnline/assets/scripts/image-resizer.js"></script>
 </body>
 
 </html>
