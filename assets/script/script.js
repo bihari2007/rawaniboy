@@ -109,3 +109,18 @@ themeToggle.onclick = () => {
     themeToggle.textContent = "🌙";
   }
 };
+
+
+
+    const popup = document.getElementById("advancedPopup");
+const closeBtn = document.getElementById("popupClose");
+
+/* Show popup after 5 seconds */
+setTimeout(() => {
+  popup.style.display = "flex";
+}, 500);
+
+/* Close popup */
+closeBtn.addEventListener("click", () => {
+  popup.style.display = "none";
+});
