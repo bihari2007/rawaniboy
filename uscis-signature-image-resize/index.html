@@ -7,7 +7,7 @@
   <title>USCIS Signature Image Resize – Resize Signature for USCIS Forms</title>
 
   <meta name="description"
-    content="Free USCIS Signature Image Resize tool. Resize signature image for USCIS forms, immigration applications and US government documents. Compress signature size without losing quality.">
+    content="Free USCIS Signature Image Resize tool. Resize signature image for USCIS forms, US immigration applications and government documents. Compress signature size without losing quality.">
 
   <meta name="keywords"
     content="uscis signature image resize, resize signature for uscis, uscis signature resize online, us immigration signature resize, uscis form signature image size">
@@ -42,6 +42,7 @@
 
 <body data-theme="light">
 
+  <!-- 🌙 Theme Toggle -->
   <button id="themeToggle">🌙</button>
 
   <div class="container">
@@ -51,12 +52,13 @@
       Resize Signature for USCIS Forms • Secure • No Upload
     </p>
 
-    <!-- TOOL -->
+    <!-- Upload -->
     <label class="custom-file-upload">
       <input type="file" id="imageInput" accept="image/*">
       ✍️ Upload Signature Image
     </label>
 
+    <!-- Crop -->
     <div id="cropContainer">
       <img id="cropImage">
 
@@ -71,6 +73,7 @@
 
     <img id="croppedPreview">
 
+    <!-- Size -->
     <select id="sizeSelect">
       <option disabled selected>Select Signature Size</option>
       <option value="original">Original Size</option>
@@ -80,63 +83,68 @@
       <option value="100">100 KB</option>
     </select>
 
+    <!-- Format -->
     <select id="formatSelect">
       <option disabled selected>Select Download Format</option>
       <option value="image">Image</option>
       <option value="pdf">PDF</option>
     </select>
 
+    <!-- Download -->
     <button id="downloadBtn" disabled>⬇️ Download Signature</button>
 
     <p class="trust">
-      🔒 Your signature image is processed locally. No upload, no storage.
+      🔒 Your signature image is processed locally in your browser. Nothing is uploaded.
     </p>
 
-    <!-- SEO CONTENT -->
+    <!-- Advanced tools link -->
+    <h3>
+      <a href="https://www.imagetoolify.in/image-resizer">
+        Try Advanced Image Tools →
+      </a>
+    </h3>
+
+    <!-- SEO Content -->
     <div class="security-info">
 
       <h2>Resize Signature Image for USCIS Forms</h2>
       <p>
-        <strong>USCIS signature image resize</strong> is an essential step when submitting
-        US immigration applications online.
-        Many USCIS forms require a digital signature image
-        that meets specific size and format requirements.
-        If your signature file is too large or incorrectly cropped,
-        your application may be rejected or delayed.
+        <strong>USCIS signature image resize</strong> is required when submitting
+        online US immigration applications.
+        USCIS forms often have strict rules for signature image size,
+        format and clarity. This tool helps you resize your signature
+        correctly without technical knowledge.
       </p>
 
       <h2>Why USCIS Signature Resize Is Important</h2>
       <p>
-        USCIS online systems often have strict upload limits.
-        This <strong>USCIS signature image resize tool</strong>
-        allows you to resize your signature accurately
-        without reducing readability or clarity.
-        You can adjust dimensions and compress file size
-        while keeping the signature clean and professional.
+        If your signature image exceeds size limits or is poorly cropped,
+        USCIS systems may reject the upload.
+        With this <strong>USCIS signature resize online</strong> tool,
+        you can crop, resize and compress your signature
+        while keeping it clear and readable.
       </p>
 
       <h2>Use for US Immigration Applications</h2>
       <p>
-        This tool is useful for various <strong>US immigration forms</strong>
-        including visa applications, green card processes,
-        employment authorization documents,
-        and other USCIS-related filings.
-        It ensures your signature image meets USCIS upload guidelines.
+        This tool is suitable for USCIS immigration forms,
+        visa applications, green card processes,
+        employment authorization documents
+        and other US government submissions.
       </p>
 
-      <h2>Secure & Private Signature Resizing</h2>
+      <h2>100% Secure & Private</h2>
       <p>
-        Privacy is critical when handling immigration documents.
-        This tool processes your signature image directly
-        in your browser and never uploads files to any server.
-        Your data remains completely private and secure.
+        Your signature image is processed directly in your browser.
+        No files are uploaded or stored on any server,
+        ensuring complete privacy and security.
       </p>
 
       <p>
-        Whether you are applying for a visa, green card,
-        citizenship, or any USCIS service,
+        Whether you are applying for a visa, green card
+        or any USCIS-related service,
         this <strong>USCIS Signature Image Resize</strong> tool
-        helps you submit a properly formatted signature every time.
+        ensures your signature meets official requirements.
       </p>
 
       <h3>CREATED WITH ❤️ BY AMAN & ANISH IN 🇮🇳</h3>
@@ -144,6 +152,20 @@
 
   </div>
 
+  <!-- ✅ ADVANCED POPUP -->
+  <div id="advancedPopup" class="popup-overlay">
+    <div class="popup-box">
+      <span class="popup-close" id="popupClose">×</span>
+      <p>
+        Need more advanced tools for USCIS & US documents?
+      </p>
+      <a href="https://www.imagetoolify.in/image-resizer">
+        Open Advanced Tools
+      </a>
+    </div>
+  </div>
+
+  <!-- Scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <script src="/assets/script/script.js"></script>
