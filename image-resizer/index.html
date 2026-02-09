@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Image Resizer Online – Resize & Compress Images Instantly</title>
+
+  <meta name="description"
+    content="Free Image Resizer online. Resize and compress images for documents, forms, passport, visa, PAN, Aadhaar, USCIS and more. No upload, fast and secure image resizing tool.">
+
+  <meta name="keywords"
+    content="image resizer, resize image online, image size reducer, compress image online, photo resize tool, document image resizer, passport photo resize, signature image resize">
+
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Rawani Boy Image Resizer">
+  <meta name="theme-color" content="#0d6efd">
+
+  <link rel="canonical" href="https://www.rawaniboy.site/image-resizer/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Image Resizer Online – Resize Images Easily">
+  <meta property="og:description"
+    content="Resize and compress images online for documents and forms. Free, fast and secure image resizer tool.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.rawaniboy.site/image-resizer/">
+  <meta property="og:image" content="https://www.rawaniboy.site/assets/images/logo/banner.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Image Resizer Online">
+  <meta name="twitter:description"
+    content="Resize and compress images online without uploading files.">
+  <meta name="twitter:image" content="https://www.rawaniboy.site/assets/images/logo/banner.png">
+
+  <!-- Styles -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css">
+  <link rel="stylesheet" href="/assets/style/style.css">
+  <link rel="icon" href="/assets/images/logo/logo.png" type="image/png">
+</head>
+
+<body data-theme="light">
+
+  <!-- 🌙 Theme Toggle -->
+  <button id="themeToggle">🌙</button>
+
+  <div class="container">
+
+    <h1>Image Resizer</h1>
+    <p class="subtitle">
+      Resize & Compress Images • Fast • Secure • No Upload
+    </p>
+
+    <!-- Upload -->
+    <label class="custom-file-upload">
+      <input type="file" id="imageInput" accept="image/*">
+      📷 Upload Image
+    </label>
+
+    <!-- Crop -->
+    <div id="cropContainer">
+      <img id="cropImage">
+
+      <select id="ratioSelect">
+        <option value="free">Free Crop</option>
+        <option value="1">Square (1:1)</option>
+        <option value="3/4">Portrait (3:4)</option>
+        <option value="4/3">Landscape (4:3)</option>
+      </select>
+
+      <button id="cropBtn">✂️ Crop Image</button>
+    </div>
+
+    <img id="croppedPreview">
+
+    <!-- Size -->
+    <select id="sizeSelect">
+      <option disabled selected>Select Image Size</option>
+      <option value="original">Original Size</option>
+      <option value="25">25 KB</option>
+      <option value="50">50 KB</option>
+      <option value="100">100 KB</option>
+      <option value="300">300 KB</option>
+    </select>
+
+    <!-- Format -->
+    <select id="formatSelect">
+      <option disabled selected>Select Download Format</option>
+      <option value="image">Image</option>
+      <option value="pdf">PDF</option>
+    </select>
+
+    <!-- Download -->
+    <button id="downloadBtn" disabled>⬇️ Download Image</button>
+
+    <p class="trust">
+      🔒 Your images are processed locally in your browser. Nothing is uploaded.
+    </p>
+
+    <!-- Advanced tools link -->
+    <h3>
+      <a href="https://www.imagetoolify.in/image-resizer">
+        Try Advanced Image Tools →
+      </a>
+    </h3>
+
+    <!-- SEO Content -->
+    <div class="security-info">
+
+      <h2>Free Online Image Resizer Tool</h2>
+      <p>
+        The <strong>Image Resizer</strong> is a powerful online tool that helps you
+        resize and compress images instantly.
+        Whether you need to resize photos for documents, online forms,
+        applications or websites, this tool makes the process simple and fast.
+      </p>
+
+      <h2>Resize Images for Documents & Forms</h2>
+      <p>
+        Many government and private forms require images with specific size limits.
+        Using this <strong>image resizer online</strong>,
+        you can resize images for passport forms, visa applications,
+        PAN card, Aadhaar card, USCIS forms,
+        bank KYC, exams and job applications.
+      </p>
+
+      <h2>Compress Image Without Quality Loss</h2>
+      <p>
+        Large image files are often rejected during uploads.
+        This tool allows you to compress image size
+        to 25KB, 50KB, 100KB or custom sizes
+        while maintaining clarity and sharpness.
+      </p>
+
+      <h2>Secure & Privacy Friendly</h2>
+      <p>
+        Your privacy matters.
+        All image processing happens directly in your browser.
+        No images are uploaded, saved or shared with any server.
+        This makes the image resizer completely safe and secure.
+      </p>
+
+      <p>
+        Whether you are a student, job applicant,
+        government form user or content creator,
+        this <strong>Image Resizer</strong>
+        helps you get perfectly resized images every time.
+      </p>
+
+      <h3>CREATED WITH ❤️ BY AMAN & ANISH IN 🇮🇳</h3>
+    </div>
+
+  </div>
+
+  <!-- ✅ ADVANCED POPUP -->
+  <div id="advancedPopup" class="popup-overlay">
+    <div class="popup-box">
+      <span class="popup-close" id="popupClose">×</span>
+      <p>
+        Need more advanced image tools?
+      </p>
+      <a href="https://www.imagetoolify.in/image-resizer">
+        Open Advanced Tools
+      </a>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="/assets/script/script.js"></script>
+
+</body>
+</html>
