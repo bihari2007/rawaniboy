@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Image Resizer in KB – Compress & Reduce Image Size Online</title>
+
+  <meta name="description"
+    content="Free Image Resizer in KB tool. Resize and compress your images to exact KB sizes (25KB, 50KB, 100KB, etc.) without quality loss. Fast, secure & no upload.">
+
+  <meta name="keywords"
+    content="image resizer in kb, compress image in kb, reduce image size to kb, image size reducer in kb, resize image to 50kb, resize image to 100kb">
+
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Rawani Boy Image Resizer">
+  <meta name="theme-color" content="#0d6efd">
+
+  <link rel="canonical" href="https://www.rawaniboy.site/image-resizer-in-kb/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Image Resizer in KB Online">
+  <meta property="og:description"
+    content="Compress and resize your image to specific KB sizes online for free. Use this image resizer in KB tool to reduce image size without losing quality.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.rawaniboy.site/image-resizer-in-kb/">
+  <meta property="og:image" content="https://www.rawaniboy.site/assets/images/logo/banner.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Image Resizer in KB">
+  <meta name="twitter:description"
+    content="Resize and compress images to specific KB sizes without uploading files.">
+  <meta name="twitter:image" content="https://www.rawaniboy.site/assets/images/logo/banner.png">
+
+  <!-- Styles -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css">
+  <link rel="stylesheet" href="/assets/style/style.css">
+  <link rel="icon" href="/assets/images/logo/logo.png" type="image/png">
+</head>
+
+<body data-theme="light">
+
+  <!-- 🌙 Theme Toggle -->
+  <button id="themeToggle">🌙</button>
+
+  <div class="container">
+
+    <h1>Image Resizer in KB</h1>
+    <p class="subtitle">
+      Compress & Resize Images to Exact KB Sizes • Fast • Secure • No Upload
+    </p>
+
+    <!-- Upload -->
+    <label class="custom-file-upload">
+      <input type="file" id="imageInput" accept="image/*">
+      📷 Upload Image
+    </label>
+
+    <!-- Crop -->
+    <div id="cropContainer">
+      <img id="cropImage">
+
+      <select id="ratioSelect">
+        <option value="free">Free Crop</option>
+        <option value="1">Square (1:1)</option>
+        <option value="3/4">Portrait (3:4)</option>
+        <option value="4/3">Landscape (4:3)</option>
+      </select>
+
+      <button id="cropBtn">✂️ Crop Image</button>
+    </div>
+
+    <img id="croppedPreview">
+
+    <!-- Size in KB -->
+    <select id="sizeSelect">
+      <option disabled selected>Select Target Size (in KB)</option>
+      <option value="25">25 KB</option>
+      <option value="50">50 KB</option>
+      <option value="100">100 KB</option>
+      <option value="200">200 KB</option>
+      <option value="300">300 KB</option>
+      <option value="500">500 KB</option>
+    </select>
+
+    <!-- Format -->
+    <select id="formatSelect">
+      <option disabled selected>Select Download Format</option>
+      <option value="image">Image</option>
+      <option value="pdf">PDF</option>
+    </select>
+
+    <!-- Download -->
+    <button id="downloadBtn" disabled>⬇️ Download Image</button>
+
+    <p class="trust">
+      🔒 Your images are processed locally in your browser. Nothing is uploaded.
+    </p>
+
+    <!-- Advanced tools link -->
+    <h3>
+      <a href="https://www.imagetoolify.in/image-resizer">
+        Try Advanced Image Tools →
+      </a>
+    </h3>
+
+    <!-- SEO Content -->
+    <div class="security-info">
+
+      <h2>Resize Image in KB for Online Uploads</h2>
+      <p>
+        The <strong>Image Resizer in KB</strong> tool allows you to resize and
+        compress images to specific file sizes such as 25 KB, 50 KB, 100 KB, 200 KB,
+        300 KB or beyond.
+        Many online systems have strict limits on the size of images you can upload.
+        This tool helps you reach the exact desired size without compromising quality.
+      </p>
+
+      <h2>Why Resize Image in KB?</h2>
+      <p>
+        When submitting images for government forms, online applications, job portals
+        or website uploads, large image files can be rejected or fail to upload.
+        With this <strong>image resizer in KB</strong>, you can compress images to
+        the required KB limit instantly and safely.
+      </p>
+
+      <h2>How It Works</h2>
+      <p>
+        Upload your image, choose your target size in KB, and let the tool compress
+        and resize the image without causing major quality loss. The tool performs
+        the entire process right in your browser, making it fast and secure.
+      </p>
+
+      <h2>Security & Privacy</h2>
+      <p>
+        We respect your privacy.
+        All image resizing happens locally in your browser.
+        No images are ever uploaded to a server.
+        This makes the tool safe for personal and professional use.
+      </p>
+
+      <p>
+        Whether you are preparing files for official documents, social media,
+        job applications or web uploads, this <strong>Image Resizer in KB</strong>
+        helps you achieve the exact file size you need.
+      </p>
+
+      <h3>CREATED WITH ❤️ BY AMAN & ANISH IN 🇮🇳</h3>
+    </div>
+
+  </div>
+
+  <!-- ✅ ADVANCED POPUP -->
+  <div id="advancedPopup" class="popup-overlay">
+    <div class="popup-box">
+      <span class="popup-close" id="popupClose">×</span>
+      <p>
+        Need more advanced image tools?
+      </p>
+      <a href="https://www.imagetoolify.in/image-resizer">
+        Open Advanced Tools
+      </a>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="/assets/script/script.js"></script>
+
+</body>
+</html>
