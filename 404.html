@@ -1,67 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>404 – Page Not Found</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page Not Found - Rawaniboy</title>
 
-  <style>
-    body {
-      margin: 0;
-      height: 100vh;
-      background: radial-gradient(circle at top, #020617, #000);
-      font-family: Arial, sans-serif;
-      color: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
 
-    .box {
-      text-align: center;
-      max-width: 500px;
-      padding: 40px;
-      border-radius: 16px;
-      background: rgba(255,255,255,0.05);
-      backdrop-filter: blur(8px);
-      box-shadow: 0 0 40px rgba(56,189,248,0.3);
-    }
+html, body{
+    margin:0;
+    padding:0;
+    height:100%;
+    overflow:hidden;   /* Scroll OFF */
+}
 
-    h1 {
-      font-size: 80px;
-      margin: 0;
-      color: #38bdf8;
-    }
+body{
+    position:fixed;    /* Fullscreen lock */
+    width:100%;
+    height:100%;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:'Poppins', sans-serif;
+    color:white;
+    text-align:center;
+}
 
-    p {
-      font-size: 18px;
-      opacity: 0.9;
-    }
+.container{
+    max-width:500px;
+    padding:20px;
+}
 
-    a {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 12px 24px;
-      background: #38bdf8;
-      color: #000;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-    }
+h1{
+    font-size:110px;
+    margin:0;
+    font-weight:800;
+    letter-spacing:5px;
+    text-shadow:0 0 25px rgba(255,255,255,0.3);
+}
 
-    a:hover {
-      background: #0ea5e9;
+h2{
+    margin-top:-10px;
+    font-weight:600;
+    font-size:24px;
+}
+
+p{
+    margin-top:10px;
+    color:#ddd;
+    font-size:16px;
+}
+
+.countdown{
+    margin-top:12px;
+    font-size:18px;
+    color:#00e0ff;
+}
+
+.btn{
+    margin-top:25px;
+    display:inline-block;
+    padding:12px 30px;
+    background:#00e0ff;
+    color:#000;
+    text-decoration:none;
+    border-radius:30px;
+    font-weight:600;
+    transition:0.3s ease;
+}
+
+.btn:hover{
+    background:white;
+    transform:scale(1.05);
+}
+
+.fade-out{
+    animation: fadeOut 1s forwards;
+}
+
+@keyframes fadeOut{
+    to{ opacity:0; }
+}
+
+@media(max-width:600px){
+    h1{
+        font-size:75px;
     }
-  </style>
+}
+</style>
 </head>
+
 <body>
 
-  <div class="box">
+<div class="container">
     <h1>404</h1>
-    <p>Oops! Page not exist</p>
-    <a href="/">🏠 Home Page</a>
-  </div>
+    <h2>Oops! Page Not Found</h2>
+    <p>The page you are looking for might have been removed or is temporarily unavailable.</p>
+
+    <div class="countdown">
+        Redirecting to Home in <span id="time">5</span> seconds...
+    </div>
+
+    <a href="/" class="btn">Go To Homepage</a>
+</div>
+
+<script>
+let timeLeft = 5;
+let timer = document.getElementById("time");
+
+let countdown = setInterval(() => {
+    timeLeft--;
+    timer.textContent = timeLeft;
+
+    if(timeLeft <= 0){
+        clearInterval(countdown);
+        document.body.classList.add("fade-out");
+        setTimeout(() => {
+            window.location.href = "/";
+        }, 1000);
+    }
+}, 1000);
+</script>
 
 </body>
 </html>
